@@ -8,9 +8,11 @@ OpenCV를 이용해서 이미지와 영상을 만화(cartoon) 스타일로 변�
 - bilateralFilter의 sigmaSpace는 좌표 공간에서 필터의 표준 편차이다.(100을 주면 가우시안 필터를 적용하는 것과 같다)
 
 ## 한계
-- 강한 만화 이미지 효과를 주려고 adaptiveThreshold의 C(임계값)을 극한으로 낮추면 edge를 너무 많이 검출하기 때문에 오히려 지저분한 느낌을 받았다.
-  그렇다고 너무 높이면 edge를 검출하지 않기 때문에 적당한 값을 찾는 것이 중요했다.
-- edges를 살리며 smoothing을 하는 bilateralFilter는 원본 이미지와 영상에 noise가 없기 때문에 드라마틱한 변화를 가져오지 않아 만화 이미지 효과를 주는데는 미비한 역할을 하였다.
+- 강한 만화 이미지 효과를 주려고 adaptiveThreshold의 C(임계값)을 극한으로 낮추면 edge를 너무 많이 검출하기 때문에 오히려 지저분한 느낌을 받았다.  
+  그렇다고 너무 높이면 edge를 검출하지 않기 때문에 적당한 값을 찾는 것이 중요하다고 생각했다.
+- edges를 살리며 smoothing을 하는 bilateralFilter는 원본 이미지와 영상에 noise가 없기 때문에 드라마틱한 변화를 가져오지 않아 만화 이미지 효과를 주는데는 미비한 역할을 하였다.  
+  noise가 많은 이미지나 영상을 예시로 든다면 bilateralFilter의 역할이 중요했을 것 같다고 생각하였다.  
+  또한 sigmaColor, sigmaSpace의 값을 잘 조절하는 것도 중요하다고 생각했다.
 - edge를 너무 많이 찾으면 bitwise_and 연산에서 속도가 늦어져 원본 영상보다 영상 길이가 길어지는 현상이 나타났다.
 
 ## 이미지
